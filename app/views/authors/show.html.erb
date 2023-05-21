@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Author #<%= @the_author.id %> details
+      <%= @the_author.name %> details
     </h1>
 
     <div>
@@ -27,13 +27,6 @@
       </dd>
 
       <dt>
-        Dob
-      </dt>
-      <dd>
-        <%= @the_author.dob %>
-      </dd>
-
-      <dt>
         Bio
       </dt>
       <dd>
@@ -44,22 +37,9 @@
         Image
       </dt>
       <dd>
-        <%= @the_author.image %>
+        <img src=<%= @the_author.image %> width=25% height=25%>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_author.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_author.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>

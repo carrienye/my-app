@@ -37,36 +37,23 @@
         Genre
       </dt>
       <dd>
-        <%= @the_book.genre_id %>
+        <%= Genre.where(:id => @the_book.genre_id).first.genre_name %>
       </dd>
 
       <dt>
         Image
       </dt>
       <dd>
-        <%= @the_book.image %>
+        <img src=<%= @the_book.image %>>
       </dd>
 
       <dt>
         Author
       </dt>
       <dd>
-        <%= @the_book.author_id %>
+        <%= Author.where(:id => @the_book.author_id).first.name %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_book.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_book.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>

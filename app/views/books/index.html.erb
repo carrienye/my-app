@@ -68,7 +68,7 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Cover
         </th>
 
         <th>
@@ -76,27 +76,7 @@
         </th>
 
         <th>
-          Description
-        </th>
-
-        <th>
-          Genre
-        </th>
-
-        <th>
-          Image
-        </th>
-
-        <th>
           Author
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
         </th>
 
         <th>
@@ -106,7 +86,7 @@
       <% @list_of_books.each do |a_book| %>
       <tr>
         <td>
-          <%= a_book.id %>
+          <img src=<%= a_book.image %> width="15%" height="15%">
         </td>
 
         <td>
@@ -114,26 +94,7 @@
         </td>
 
         <td>
-          <%= a_book.description %>
-        </td>
-
-        <td>
-          <%= a_book.genre_id %>
-        </td>
-
-        <td>
-          <%= a_book.image %>
-        </td>
-
-        <td>
-          <%= a_book.author_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_book.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_book.updated_at) %> ago
+          <%= Author.where(:id => a_book.author_id).first.name %>
         </td>
 
         <td>
