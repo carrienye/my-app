@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Genre #<%= @the_genre.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/genres">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_genre/<%= @the_genre.id %>">
+          Delete genre
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Genre name
+      </dt>
+      <dd>
+        <%= @the_genre.genre_name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_genre.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_genre.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit genre
+    </h2>
+
+    <form action="/modify_genre/<%= @the_genre.id %>"  method="post" >
+      <div>
+        <label for="genre_name_box">
+          Genre name
+        </label>
+
+        <input type="text" id="genre_name_box" name="query_genre_name" value="<%= @the_genre.genre_name %>">
+      </div>
+
+      <button>
+        Update genre
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

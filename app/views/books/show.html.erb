@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Book #<%= @the_book.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/books">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_book/<%= @the_book.id %>">
+          Delete book
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_book.title %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_book.description %>
+      </dd>
+
+      <dt>
+        Genre
+      </dt>
+      <dd>
+        <%= @the_book.genre_id %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_book.image %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @the_book.author_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_book.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_book.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit book
+    </h2>
+
+    <form action="/modify_book/<%= @the_book.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_book.title %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_book.description %>">
+      </div>
+
+      <div>
+        <label for="genre_id_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_id_box" name="query_genre_id" value="<%= @the_book.genre_id %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_book.image %>">
+      </div>
+
+      <div>
+        <label for="author_id_box">
+          Author
+        </label>
+
+        <input type="text" id="author_id_box" name="query_author_id" value="<%= @the_book.author_id %>">
+      </div>
+
+      <button>
+        Update book
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Author #<%= @the_author.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/authors">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_author/<%= @the_author.id %>">
+          Delete author
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_author.name %>
+      </dd>
+
+      <dt>
+        Dob
+      </dt>
+      <dd>
+        <%= @the_author.dob %>
+      </dd>
+
+      <dt>
+        Bio
+      </dt>
+      <dd>
+        <%= @the_author.bio %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_author.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_author.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_author.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit author
+    </h2>
+
+    <form action="/modify_author/<%= @the_author.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_author.name %>">
+      </div>
+
+      <div>
+        <label for="dob_box">
+          Dob
+        </label>
+
+        <input type="text" id="dob_box" name="query_dob" value="<%= @the_author.dob %>">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <textarea id="bio_box" name="query_bio"><%= @the_author.bio %></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_author.image %>">
+      </div>
+
+      <button>
+        Update author
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
