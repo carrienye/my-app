@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # Routes for the Favorite resource:
 
+  get("/", { :controller => "books", :action => "index" })
+
   # CREATE
   post("/insert_favorite", { :controller => "favorites", :action => "create" })
           
