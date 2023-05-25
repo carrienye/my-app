@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # Routes for the Favorite resource:
 
-  get("/", { :controller => "books", :action => "index" })
+  get("/", { :controller => "books", :action => "home" })
 
   # CREATE
   post("/insert_favorite", { :controller => "favorites", :action => "create" })
@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
   # SIGN IN FORM
   get("/user_sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
+  
   # AUTHENTICATE AND STORE COOKIE
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
   

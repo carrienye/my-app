@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all favorites
+      List of Your Books
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new favorite
+      Congrats you finished a book! Add a new "read" book here.
     </h2>
 
     <form action="/insert_favorite" method="post">
@@ -31,7 +31,7 @@
       </div>
 
       <button>
-        Create favorite
+        Track reading
       </button>
     </form>
   </div>
@@ -67,7 +67,7 @@
         </td>
 
         <td>
-          <a href="/favorites/<%= a_favorite.id %>">
+          <a href="/books/<%= a_favorite.id %>">
             Show details
           </a>
         </td>

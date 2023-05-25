@@ -59,4 +59,8 @@ class BooksController < ApplicationController
 
     redirect_to("/books", { :notice => "Book deleted successfully."} )
   end
+
+  def home
+    render({ :template => "books/home.html.erb" })
+  end
 end
