@@ -53,7 +53,12 @@
 
         <th>
         </th>
+
+        <th>
+        </th>
+
       </tr>
+
 
       <% @list_of_favorites.each do |a_favorite| %>
       <tr align="center" valign="middle" width="50%">
@@ -71,6 +76,13 @@
             Show details
           </a>
         </td>
+
+        <td>
+          <a href="/delete_favorite/<%= a_favorite.book_id %>">
+            Remove from list of books read
+          </a>
+        </td>
+
       </tr>
       <% end %>
     </table>
