@@ -10,7 +10,6 @@
           Go back to all authors
         </a>
       </div>
-
     </div>
 
     <dl>
@@ -26,18 +25,16 @@
         Books by this author
       </dt>
       <dd class="text-success">
-      <i>
+        <i>
           <% Book.where(:author_id => @the_author.id).each do |a_books| %>
           <ul>
             <a href="/books/<%=a_books.id%>">
               <%= a_books.title %>
             </a>
-            
           </ul>
-        <% end %>
+          <% end %>
         </i>
-              </dd>
-
+        </dd>
     </dl>
   </div>
 </div>
