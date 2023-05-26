@@ -42,16 +42,14 @@
         Author
       </dt>
       <dd>
-        <%= Author.where(:id => @the_book.author_id).first.name %>
+        <a href="/authors/<%= @the_book.author_id %>">
+          <%= Author.where(:id => @the_book.author_id).first.name %>
+        </a>
+        
       </dd>
 
       <dt>
       </dt>
-      <dd>
-        <a href="/authors/<%= @the_book.author_id %>">
-            Show author details
-          </a>
-      </dd>
 
     </dl>
   </div>
@@ -88,10 +86,14 @@
           Genre
         </label>
 
-        <select class="form-select" name="query_genre_id">
+        <select class="form-select" name="query_genre_id" >
+          <option value="<%= Genre.where({:id => @the_book.genre_id }).first.genre_name %>" selected>
+            <%= Genre.where({:id => @the_book.genre_id }).first.genre_name %>
+          </option>
           <% Genre.all.order(:genre_name).each do |a_genre| %>
-            <option value="<%= a_genre.id %>">
-            <%= a_genre.genre_name %>
+
+            <option value="<%= a_genre.id %>" >
+              <%= a_genre.genre_name %>
             </option>
           <% end %>
         </select>
@@ -111,6 +113,9 @@
         </label>
 
         <select class="form-select" name="query_author_id">
+          <option value="<%= Author.where({:id => @the_book.author_id }).first.name %>" selected>
+            <%= Author.where({:id => @the_book.author_id }).first.name %>
+          </option>
           <% Author.all.order(:name).each do |a_author| %>
             <option value="<%= a_author.id %>">
             <%= a_author.name %>

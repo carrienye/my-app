@@ -113,27 +113,19 @@
         </td>
 
         <td align="center" valign="middle">
-          <%= a_book.title %>
-        </td>
-
-        <td align="center" valign="middle" width="50%">
-          <%= Author.where(:id => a_book.author_id).first.name %>
-        </td>
-
-        <td align="center" valign="middle" width="50%">
-          <%= Genre.where(:id => a_book.genre_id).first.genre_name %>
-        </td>
-
-        <td align="center" valign="middle" width="50%">
           <a href="/books/<%= a_book.id %>">
-            Show book details
+            <%= a_book.title %>
           </a>
         </td>
 
         <td align="center" valign="middle" width="50%">
           <a href="/authors/<%= a_book.author_id %>">
-            Show author details
+            <%= Author.where(:id => a_book.author_id).first.name %>
           </a>
+        </td>
+
+        <td align="center" valign="middle" width="50%">
+          <%= Genre.where(:id => a_book.genre_id).first.genre_name %>
         </td>
       </tr>
       <% end %>
