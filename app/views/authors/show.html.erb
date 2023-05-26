@@ -1,49 +1,38 @@
 <div>
-  <div>
+  <div class="text-center">
     <h1>
-      <%= @the_author.name %> details
+      About <%= @the_author.name %> 
     </h1>
 
     <div>
       <div>
         <a href="/authors">
-          Go back
+          Go back to all authors
         </a>
       </div>
 
     </div>
 
     <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_author.name %>
-      </dd>
-
-      <dt>
-        Bio
-      </dt>
-      <dd>
-        <%= @the_author.bio %>
-      </dd>
-
-      <dt>
-        Image
-      </dt>
       <dd>
         <img src=<%= @the_author.image %> width=25% height=25%>
+      </dd>
+      
+      <dd>
+        <%= @the_author.bio %>
       </dd>
 
        <dt>
         Books by this author
       </dt>
-      <dd>
+      <dd class="text-center text-success">
+      <i>
           <% Book.where(:author_id => @the_author.id).each do |a_books| %>
-          <li>
+          <ul>
           <%= a_books.title %>
-        </li>
+        </ul>
         <% end %>
+        </i>
               </dd>
 
     </dl>
@@ -54,7 +43,7 @@
 
 
 <div>
-  <div>
+  <div class="text-center">
     <h2>
       Edit author information
     </h2>
@@ -67,23 +56,23 @@
         <input type="hidden" id="name_box" name="query_name" value="<%= @the_author.name %>">
       </div>
 
-      <div>
-        <label for="bio_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="bio_box">
           Bio
         </label>
 
-        <textarea id="bio_box" name="query_bio"><%= @the_author.bio %></textarea>
+        <textarea class="form-control" id="bio_box" name="query_bio"><%= @the_author.bio %></textarea>
       </div>
 
-      <div>
-        <label for="image_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_author.image %>">
+        <input class="form-control" type="text" id="image_box" name="query_image" value="<%= @the_author.image %>">
       </div>
 
-      <button>
+      <button class="btn btn-success">
         Update author
       </button>
     </form>

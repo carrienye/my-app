@@ -1,34 +1,31 @@
 <div>
-  <div>
-    <h1>
-      <i>
-      <%= @the_book.title %> </i> details
-    </h1>
-
-    <div>
+ <div>
       <div>
         <a href="/books">
-          Go back
+          Go back to All Books
         </a>
       </div>
 
-      <div>
-        <a href="/delete_book/<%= @the_book.id %>">
-          Delete book
-        </a>
-      </div>
+    </div>
+  <div class="text-center">
+    <h1>
+      <i>
+      <%= @the_book.title %> </i> 
+    </h1>
+
+
+    <div>
+      Add this title to <a href="/favorites">books you've read</a>
     </div>
 
-    <dl>
+    <dl class="text-center">
       <dt>
-        Title
       </dt>
       <dd>
-        <%= @the_book.title %>
+        <img src=<%= @the_book.image %> width=10% height=10%>
       </dd>
-
+      
       <dt>
-        Description
       </dt>
       <dd>
         <%= @the_book.description %>
@@ -42,13 +39,6 @@
       </dd>
 
       <dt>
-        Image
-      </dt>
-      <dd>
-        <img src=<%= @the_book.image %>>
-      </dd>
-
-      <dt>
         Author
       </dt>
       <dd>
@@ -56,7 +46,6 @@
       </dd>
 
       <dt>
-        See author details
       </dt>
       <dd>
         <a href="/authors/<%= @the_book.author_id %>">
@@ -72,34 +61,34 @@
 
 
 <div>
-  <div>
+  <div class="text-center">
     <h2>
       Edit book
     </h2>
 
     <form action="/modify_book/<%= @the_book.id %>"  method="post" >
-      <div>
-        <label for="title_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="title_box">
           Title
         </label>
 
-        <input type="text" id="title_box" name="query_title" value="<%= @the_book.title %>">
+        <input class="form-control" type="text" id="title_box" name="query_title" value="<%= @the_book.title %>">
       </div>
 
-      <div>
-        <label for="description_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="description_box">
           Description
         </label>
 
-        <input type="text" id="description_box" name="query_description" value="<%= @the_book.description %>">
+        <input class="form-control" type="text" id="description_box" name="query_description" value="<%= @the_book.description %>">
       </div>
 
-      <div>
-        <label for="genre_id_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="genre_id_box">
           Genre
         </label>
 
-        <select name="query_genre_id">
+        <select class="form-select" name="query_genre_id">
           <% Genre.all.order(:genre_name).each do |a_genre| %>
             <option value="<%= a_genre.id %>">
             <%= a_genre.genre_name %>
@@ -108,23 +97,29 @@
         </select>
       </div>
 
-      <div>
-        <label for="image_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_book.image %>">
+        <input class="form-control" type="text" id="image_box" name="query_image" value="<%= @the_book.image %>">
       </div>
 
-      <div>
-        <label for="author_id_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="author_id_box">
           Author
         </label>
 
-        <input type="text" id="author_id_box" name="query_author_id" value="<%= Author.where(:id => @the_book.author_id).first.name %>">
+        <select class="form-select" name="query_author_id">
+          <% Author.all.order(:name).each do |a_author| %>
+            <option value="<%= a_author.id %>">
+            <%= a_author.name %>
+            </option>
+          <% end %>
+        </select>
       </div>
 
-      <button>
+      <button class="btn btn-success">
         Update book
       </button>
     </form>

@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h1>
+    <h1 class="text-center">
       List of all authors
     </h1>
   </div>
@@ -10,43 +10,46 @@
 
 <div>
   <div>
-    <h2>
+    <h2 class="text-center">
       Add a new author
     </h2>
 
     <form action="/insert_author" method="post">
-      <div>
-        <label for="name_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="name_box">
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name">
+        <input class="form-control" type="text" id="name_box" name="query_name">
       </div>
 
-      <div>
-        <label for="bio_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="bio_box">
           Bio
         </label>
 
-        <textarea id="bio_box" name="query_bio" rows="3"></textarea>
+        <textarea class="form-control" id="bio_box" name="query_bio" rows="3"></textarea>
       </div>
 
-      <div>
-        <label for="image_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image">
-      </div>
+        <input class="form-control" type="text" id="image_box" name="query_image">
+      
 
-      <button>
+      <button class="btn btn-success">
         Create author
       </button>
+      </div>
     </form>
   </div>
 </div>
 
+<div class="text-center">
 Back to list of all <a href="/books">Books</a>
+</div>
 
 <hr>
 <div>

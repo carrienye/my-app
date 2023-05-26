@@ -1,5 +1,5 @@
 <div>
-  <div>
+  <div class="text-center">
     <h1>
       List of Books You've Read
     </h1>
@@ -9,19 +9,19 @@
 <hr>
 
 <div>
-  <div>
+  <div class="text-center">
     <h2>
       Congrats you finished a book! Add a new "read" book here.
     </h2>
 
     <form action="/insert_favorite" method="post">
-      <div>
+      <div class="input-group mb-3">
       
-        <label for="book_id_box">
+        <label class="input-group-text" for="book_id_box">
           Book
         </label>
 
-        <select name="query_book_id">
+        <select class="form-select" name="query_book_id">
           <% Book.all.order(:title).each do |a_book| %>
             <option value="<%= a_book.id %>">
             <%= a_book.title %>
@@ -67,7 +67,7 @@
         </td>
 
         <td>
-          <a href="/books/<%= a_favorite.id %>">
+          <a href="/books/<%= a_favorite.book_id %>">
             Show details
           </a>
         </td>

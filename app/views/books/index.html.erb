@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h1>
+    <h1 class="text-center">
       List of all books
     </h1>
   </div>
@@ -10,33 +10,33 @@
 
 <div>
   <div>
-    <h2>
+    <h2 class="text-center">
       Add a new book
     </h2>
 
     <form action="/insert_book" method="post">
-      <div>
-        <label for="title_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="title_box">
           Title
         </label>
 
-        <input type="text" id="title_box" name="query_title">
+        <input class="form-control" type="text" id="title_box" name="query_title">
       </div>
 
-      <div>
-        <label for="description_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="description_box">
           Description
         </label>
 
-        <input type="text" id="description_box" name="query_description">
+        <input class="form-control" type="text" id="description_box" name="query_description">
       </div>
 
-      <div>
-        <label for="genre_id_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="genre_id_box">
           Genre
         </label>
 
-        <select name="query_genre_id">
+        <select class="form-select" name="query_genre_id">
           <% Genre.all.order(:genre_name).each do |a_genre| %>
             <option value="<%= a_genre.id %>">
             <%= a_genre.genre_name %>
@@ -45,20 +45,20 @@
         </select>
       </div>
 
-      <div>
-        <label for="image_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image">
+        <input class="form-control" type="text" id="image_box" name="query_image">
       </div>
 
-      <div>
-        <label for="author_id_box">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="author_id_box">
           Author
         </label>
 
-        <select name="query_author_id">
+        <select class="form-select" name="query_author_id">
           <% Author.all.order(:name).each do |a_author| %>
             <option value="<%= a_author.id %>">
             <%= a_author.name %>
@@ -74,7 +74,7 @@
   </div>
 </div>
 
-<div>
+<div class="text-center">
   Don't see the author you're looking for? First add a new <a href="/authors">Author</a>.
 </div>
 
