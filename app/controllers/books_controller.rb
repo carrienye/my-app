@@ -24,7 +24,7 @@ class BooksController < ApplicationController
     the_book.genre_id = params.fetch("query_genre_id")
     the_book.image = params.fetch("query_image")
     the_book.author_id = params.fetch("query_author_id")
-
+  
     if the_book.valid?
       the_book.save
       redirect_to("/books", { :notice => "Book created successfully." })

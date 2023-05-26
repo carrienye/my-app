@@ -11,11 +11,6 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_author/<%= @the_author.id %>">
-          Delete author
-        </a>
-      </div>
     </div>
 
     <dl>
@@ -40,6 +35,17 @@
         <img src=<%= @the_author.image %> width=25% height=25%>
       </dd>
 
+       <dt>
+        Books by this author
+      </dt>
+      <dd>
+          <% Book.where(:author_id => @the_author.id).each do |a_books| %>
+          <li>
+          <%= a_books.title %>
+        </li>
+        <% end %>
+              </dd>
+
     </dl>
   </div>
 </div>
@@ -50,24 +56,15 @@
 <div>
   <div>
     <h2>
-      Edit author
+      Edit author information
     </h2>
 
     <form action="/modify_author/<%= @the_author.id %>"  method="post" >
       <div>
         <label for="name_box">
-          Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_author.name %>">
-      </div>
-
-      <div>
-        <label for="dob_box">
-          Dob
-        </label>
-
-        <input type="text" id="dob_box" name="query_dob" value="<%= @the_author.dob %>">
+        <input type="hidden" id="name_box" name="query_name" value="<%= @the_author.name %>">
       </div>
 
       <div>

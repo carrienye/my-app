@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of Your Books
+      List of Books You've Read
     </h1>
   </div>
 </div>
@@ -30,7 +30,7 @@
         </select>
       </div>
 
-      <button>
+      <button class="btn btn-success">
         Track reading
       </button>
     </form>
@@ -40,8 +40,8 @@
 <hr>
 <div>
   <div>
-    <table border="1">
-      <tr>
+    <table border-color="black" border="1" cellpadding="20" cellspacing="1" width="100%">
+      <tr align="center" valign="middle" width="50%">
 
         <th>
           Book
@@ -56,14 +56,14 @@
       </tr>
 
       <% @list_of_favorites.each do |a_favorite| %>
-      <tr>
+      <tr align="center" valign="middle" width="50%">
 
         <td>
           <%= Book.where(:id => a_favorite.book_id).first.title %>
         </td>
 
         <td>
-        <img src=<%= Book.where(:id => a_favorite.book_id).first.image %> width="15%" height="15%">
+        <img src=<%= Book.where(:id => a_favorite.book_id).first.image %> width="10%" height="10%">
         </td>
 
         <td>

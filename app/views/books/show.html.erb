@@ -1,7 +1,8 @@
 <div>
   <div>
     <h1>
-      Book #<%= @the_book.id %> details
+      <i>
+      <%= @the_book.title %> </i> details
     </h1>
 
     <div>
@@ -54,6 +55,15 @@
         <%= Author.where(:id => @the_book.author_id).first.name %>
       </dd>
 
+      <dt>
+        See author details
+      </dt>
+      <dd>
+        <a href="/authors/<%= @the_book.author_id %>">
+            Show author details
+          </a>
+      </dd>
+
     </dl>
   </div>
 </div>
@@ -89,7 +99,13 @@
           Genre
         </label>
 
-        <input type="text" id="genre_id_box" name="query_genre_id" value="<%= @the_book.genre_id %>">
+        <select name="query_genre_id">
+          <% Genre.all.order(:genre_name).each do |a_genre| %>
+            <option value="<%= a_genre.id %>">
+            <%= a_genre.genre_name %>
+            </option>
+          <% end %>
+        </select>
       </div>
 
       <div>
@@ -105,7 +121,7 @@
           Author
         </label>
 
-        <input type="text" id="author_id_box" name="query_author_id" value="<%= @the_book.author_id %>">
+        <input type="text" id="author_id_box" name="query_author_id" value="<%= Author.where(:id => @the_book.author_id).first.name %>">
       </div>
 
       <button>

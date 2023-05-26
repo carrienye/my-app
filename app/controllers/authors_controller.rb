@@ -20,7 +20,7 @@ class AuthorsController < ApplicationController
   def create
     the_author = Author.new
     the_author.name = params.fetch("query_name")
-    the_author.dob = params.fetch("query_dob")
+    #the_author.dob = params.fetch("query_dob")
     the_author.bio = params.fetch("query_bio")
     the_author.image = params.fetch("query_image")
 
@@ -37,7 +37,7 @@ class AuthorsController < ApplicationController
     the_author = Author.where({ :id => the_id }).at(0)
 
     the_author.name = params.fetch("query_name")
-    the_author.dob = params.fetch("query_dob")
+    #the_author.dob = params.fetch("query_dob")
     the_author.bio = params.fetch("query_bio")
     the_author.image = params.fetch("query_image")
 
