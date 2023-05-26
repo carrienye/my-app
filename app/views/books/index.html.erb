@@ -65,13 +65,13 @@
 <hr>
 <div>
   <div>
-    <table border="1">
-      <tr>
-        <th>
+    <table border-color="black" border="1" cellpadding="20" cellspacing="1" width="100%">
+      <tr align="center" valign="middle" width="50%">
+        <th align="center" valign="middle" width="50%">
           Cover
         </th>
 
-        <th>
+        <th font-size="16">
           Title
         </th>
 
@@ -85,19 +85,19 @@
 
       <% @list_of_books.each do |a_book| %>
       <tr>
-        <td>
+        <td align="center" valign="middle">
           <img src=<%= a_book.image %> width="15%" height="15%">
         </td>
 
-        <td>
+        <td align="center" valign="middle">
           <%= a_book.title %>
         </td>
 
-        <td>
+        <td align="center" valign="middle" width="50%">
           <%= Author.where(:id => a_book.author_id).first.name %>
         </td>
 
-        <td>
+        <td align="center" valign="middle" width="50%">
           <a href="/books/<%= a_book.id %>">
             Show details
           </a>
